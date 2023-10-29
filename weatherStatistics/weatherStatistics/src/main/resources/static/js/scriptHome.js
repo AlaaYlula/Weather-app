@@ -20,13 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
        let data;
         try {
             const response = await fetch("weather/" + city);
-
+            console.log(response);
             if (!response.ok) {
                 data = await response.json();
+                console.log(data);
                 throw new Error(data.message);
 
             }else{
               data = await response.json(); // Parse the response body as JSON
+              data = data.body;
               document.getElementById("country").textContent = "Country: "+data.location.country;
               document.getElementById("city").textContent = "City: "+data.location.name;
               document.getElementById("dateAPI").textContent = data.current.last_updated;
