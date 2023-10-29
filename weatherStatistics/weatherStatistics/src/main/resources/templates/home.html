@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Theme Made By www.w3schools.com -->
+    <title>Bootstrap Theme Company Page</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#myPage">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="jumbotron text-center">
+    <h1>Weather Statistics</h1>
+    <form id="submitCity">
+        <div class="input-group">
+            <input id="inputCity" name="inputCity" type="text" class="form-control" size="50"
+                   placeholder="City/Country" required>
+<!--            <div class="form-control" size="50">-->
+<!--                <label for="numberOfDaysForescast">number Of Days Forescast</label>-->
+<!--                <select name="numberOfDaysForescast" id="numberOfDaysForescast">-->
+
+<!--                </select>-->
+<!--            </div>-->
+
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-danger">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id = "error"></div>
+<div class="popup" id="popup">
+    <h2>Something Wrong!</h2>
+    <p id="errorMessage"></p>
+    <button type="button" onclick="closePopup()"> OK </button>
+</div>
+
+<div id="containAllInfo">
+
+    <div id="services" class="container-fluid text-center">
+
+        <div class="text-center">
+            <h2 id="country"></h2>
+            <h4 id="city"></h4>
+        </div>
+
+        <br>
+        <div class="row ">
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-dashboard logo-small"></span>
+                <h4>Date</h4>
+                <div id="dateAPI"></div>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-list-alt logo-small"></span>
+                <h4>Temperature</h4>
+                <div id="temperatureAPI"></div>
+
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-cloud logo-small"></span>
+                <h4>Condition</h4>
+                <div id="conditionAPI"></div>
+
+            </div>
+        </div>
+        <br><br>
+    </div>
+
+    <!-- Container (ForeCast Section) -->
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2>Weather</h2>
+            <h4>Forecast</h4>
+        </div>
+        <div id="forecast" class="row slideanim">
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<script src="/js/scriptHome.js"></script>
+</body>
+</html>
