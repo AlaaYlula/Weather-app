@@ -2,16 +2,17 @@
 // To fetch the Home page HTML
 document.addEventListener("DOMContentLoaded", async function () {
 
- try {
+        let data;
+        try {
              const response = await fetch("/");
              if (!response.ok) {
-                 throw new Error('Network response was not ok');
+                  data = await response.json();
+                  throw new Error(data.message);
              }
-             const data = await response.text(); // Parse the response body as JSON
+             data = await response.text(); // Parse the response body as JSON
              document.getElementById("container").textContent = data;
          } catch (error) {
-             console.error('Error:', error);
-             throw error; // Optionally rethrow the error for higher-level error handling
+             document.getElementById("errorMessage").innerHTML = error;// In the error.html
          }
 });
 

@@ -17,7 +17,7 @@ public class HtmlService {
     public String getHomePage() {
 
         try{
-            // Load the HTML file as a resource
+            // Load the HTML file as a Resource
             Resource resource = new ClassPathResource("templates/home.html");
             InputStream inputStream = resource.getInputStream();
 

@@ -23,9 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!response.ok) {
                 data = await response.json();
-                openPopup();
-                let pError = document.getElementById('errorMessage');
-                pError.innerHTML = data.message;
+                throw new Error(data.message);
+
             }else{
               data = await response.json(); // Parse the response body as JSON
               document.getElementById("country").textContent = "Country: "+data.location.country;
@@ -97,10 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
             }
 
-
         } catch (error) {
-            console.error('Error:', error);
-            console.log(data);
+              openPopup();
+              let pError = document.getElementById('errorMessage'); // In the Home.html
+              pError.innerHTML = error;
         }
     });
 });

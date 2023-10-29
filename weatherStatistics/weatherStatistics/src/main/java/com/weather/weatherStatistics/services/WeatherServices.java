@@ -9,10 +9,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class WeatherServices {
@@ -20,19 +25,22 @@ public class WeatherServices {
     @Value("${keyAPI}")
     String keyAPI;
     @Value("${hostAPI}")
-
     String hostAPI;
-    private  Root getWeatherStatisticsFromAPI(String c)  {
+    @Value("${api}")
+    String apiLink;
+
+    // Function to hit the API and return the weather Object.
+    private  Root getWeatherStatisticsFromAPI(String c) throws UnsupportedEncodingException {
         Root weatherObject = null;
+        String cityCountryName = c.replace(" ","%20");
         try {
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://weatherapi-com.p.rapidapi.com/forecast.json?q=" + c + "&days=10"))
+                    .uri(URI.create(apiLink+"?q=" + cityCountryName + "&days=10"))
                     .header("X-RapidAPI-Key", keyAPI)
                     .header("X-RapidAPI-Host", hostAPI)
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-           // System.out.println("JSON OBJECT >> " + response.body());
             // Parse the JSON
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(response.body());
@@ -41,14 +49,10 @@ public class WeatherServices {
                 // Extract the error code and message
                 JsonNode errorNode = rootNode.get("error");
                 String errorMessage = errorNode.get("message").asText();
-
-//                JsonNode errorMessage = rootNode.get("message");
-//                String message = errorMessage.asText();
                 throw new APINotFoundError(errorMessage);
             } else {
                 // No error, get the Weather Java Object
                 weatherObject = objectMapper.readValue(response.body(), Root.class);
-                System.out.println("JAVA OBJECT >> "+ weatherObject.getCurrent().getCondition().getText());
             }
 
         }catch (Exception e){
