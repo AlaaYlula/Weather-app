@@ -1,22 +1,17 @@
 package com.weather.weatherStatistics.controllers;
 
-import com.weather.weatherStatistics.services.HtmlService;
 import com.weather.weatherStatistics.services.WeatherServices;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping(path = "weather")
+@AllArgsConstructor
 public class WeatherController {
 
-    @Autowired
     WeatherServices weatherServices;
-
-    public WeatherController(WeatherServices weatherServices ) {
-        this.weatherServices = weatherServices;
-    }
 
     @GetMapping("/{c}")
     public ResponseEntity<Object> getWeatherStatistics(@PathVariable("c") String c ){

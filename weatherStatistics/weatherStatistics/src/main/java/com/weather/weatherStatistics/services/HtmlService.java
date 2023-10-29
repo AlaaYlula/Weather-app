@@ -1,8 +1,9 @@
 package com.weather.weatherStatistics.services;
 
-import com.weather.weatherStatistics.Exception.HTMLException;
+import com.weather.weatherStatistics.Exception.HTMLNotFoundException;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 
@@ -14,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 public class HtmlService {
 
 
-    public String getHomePage() {
+    public ResponseEntity<String> getHomePage() {
 
         try{
             // Load the HTML file as a Resource
@@ -26,9 +27,11 @@ public class HtmlService {
             String htmlContent = new String(bytes, StandardCharsets.UTF_8);
 
             //return to display html page on the home.html
-            return htmlContent;
+            return ResponseEntity.ok(htmlContent);
         }catch (IOException exception){
-            throw new HTMLException(exception.getMessage(),exception.getCause());
+            System.out.println("In Exception");
+
+            throw new HTMLNotFoundException(exception.getMessage(),exception.getCause());
         }
     }
 }
