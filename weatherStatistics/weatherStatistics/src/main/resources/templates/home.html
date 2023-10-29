@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Theme Made By www.w3schools.com -->
-    <title>Bootstrap Theme Company Page</title>
+    <title>Weather Statistics</title>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,17 +15,17 @@
 
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<header>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#myPage">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+<!--<header>-->
+<!--    <nav class="navbar navbar-default navbar-fixed-top">-->
+<!--        <div class="container">-->
+<!--            <div class="collapse navbar-collapse" id="myNavbar">-->
+<!--                <ul class="nav navbar-nav navbar-right">-->
+<!--                    <li><a href="#myPage">Home</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </nav>-->
+<!--</header>-->
 <div class="jumbotron text-center">
     <h1>Weather Statistics</h1>
     <form id="submitCity">
@@ -45,7 +45,7 @@
         </div>
     </form>
 </div>
-<div id = "error"></div>
+<!-- The Error Popup Message -->
 <div class="popup" id="popup">
     <h2>Something Wrong!</h2>
     <p id="errorMessage"></p>
@@ -54,13 +54,13 @@
 
 <div id="containAllInfo">
 
+    <!--  Container (Weather Info Section)  -->
     <div id="services" class="container-fluid text-center">
 
         <div class="text-center">
             <h2 id="country"></h2>
             <h4 id="city"></h4>
         </div>
-
         <br>
         <div class="row ">
             <div class="col-sm-4">
@@ -91,13 +91,12 @@
             <h4>Forecast</h4>
         </div>
         <div id="forecast" class="row slideanim">
+            <!--  will Contain the Forecasts Information          -->
         </div>
 
     </div>
+
 </div>
-
-
-
 
 <script src="/js/scriptHome.js"></script>
 </body>
