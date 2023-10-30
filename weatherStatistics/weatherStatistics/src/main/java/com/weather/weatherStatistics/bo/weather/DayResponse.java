@@ -1,6 +1,5 @@
-package com.weather.weatherStatistics.bo;
+package com.weather.weatherStatistics.bo.weather;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -12,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Day {
+public class DayResponse {
 
     public double maxtemp_c;
     public double maxtemp_f;
@@ -21,6 +20,6 @@ public class Day {
     public double avgtemp_c;
     public double avgtemp_f;
 
-    public Condition condition;
+    public ConditionResponse condition;
 
 }

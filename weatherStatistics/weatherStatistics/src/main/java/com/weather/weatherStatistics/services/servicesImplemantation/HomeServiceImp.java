@@ -1,6 +1,7 @@
-package com.weather.weatherStatistics.services;
+package com.weather.weatherStatistics.services.servicesImplemantation;
 
 import com.weather.weatherStatistics.Exception.HTMLNotFoundException;
+import com.weather.weatherStatistics.services.HomeService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +13,9 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 @Service
-public class HtmlService {
+public class HomeServiceImp implements HomeService {
 
-
+    @Override
     public ResponseEntity<String> getHomePage() {
 
         try{
@@ -26,12 +27,11 @@ public class HtmlService {
             byte[] bytes = FileCopyUtils.copyToByteArray(inputStream);
             String htmlContent = new String(bytes, StandardCharsets.UTF_8);
 
-            //return to display html page on the home.html
+            //return to display the Home html page content on the index.html page
             return ResponseEntity.ok(htmlContent);
         }catch (IOException exception){
-            System.out.println("In Exception");
-
             throw new HTMLNotFoundException(exception.getMessage(),exception.getCause());
         }
     }
+
 }

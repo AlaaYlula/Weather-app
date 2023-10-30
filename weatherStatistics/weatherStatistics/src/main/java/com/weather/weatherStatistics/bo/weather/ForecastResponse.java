@@ -1,4 +1,4 @@
-package com.weather.weatherStatistics.bo;
+package com.weather.weatherStatistics.bo.weather;
 
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,8 +11,8 @@ import java.util.ArrayList;
 @Setter
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Forecast {
+public class ForecastResponse {
 
-    public ArrayList<Forecastday> forecastday;
+    public ArrayList<ForecastdayResponse> forecastday;
 
 }

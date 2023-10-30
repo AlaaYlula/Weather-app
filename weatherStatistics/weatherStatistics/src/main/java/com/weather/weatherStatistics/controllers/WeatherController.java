@@ -1,6 +1,6 @@
 package com.weather.weatherStatistics.controllers;
 
-import com.weather.weatherStatistics.services.WeatherServices;
+import com.weather.weatherStatistics.services.servicesImplemantation.WeatherServicesImp;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class WeatherController {
 
-    WeatherServices weatherServices;
+    WeatherServicesImp weatherServices;
 
     @GetMapping("/{c}")
     public ResponseEntity<Object> getWeatherStatistics(@PathVariable("c") String c ){
         return weatherServices.getWeather(c );
     }
 
-//    @GetMapping("/{c}/{numberOfDays}")
-//    public Root getWeatherStatisticsByNumberOfDays(@PathVariable("c") String c , @PathVariable("numberOfDays") String numberOfDays){
-//        return weatherServices.getWeatherByNumberOfDays(c,numberOfDays);
-//    }
 }

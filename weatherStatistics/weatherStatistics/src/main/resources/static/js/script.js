@@ -1,5 +1,5 @@
 
-// To fetch the Home page HTML
+// To fetch the Home page HTML contents
 document.addEventListener("DOMContentLoaded", async function () {
 
         let data;
@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", async function () {
              }else{
               data = await response.text(); // Parse the response body as JSON
               let container = document.getElementById("container");
-              if(container == null){
-                   throw new Error("The Route Not Exists");
-              }else{
-                  container.textContent = data;
+                  if(container == null){
+                       throw new Error("The Route Not Exists");
+                  }else{
+                      container.textContent = data;
+                  }
               }
-                 }
             } catch (error) {
                 document.getElementById("errorMessage").innerHTML = error;// In the error.html
-                   }
+               }
 });
 

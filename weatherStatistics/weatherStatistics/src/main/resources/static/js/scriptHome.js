@@ -1,13 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // To let the use have more flexibility to choose how many days weather information want to see
-//    let selectElement = document.getElementById("numberOfDaysForescast");
-//    for(let i=1 ; i<=14 ; i++){
-//        let option = document.createElement('option');
-//        option.value = i;
-//        option.textContent = i;
-//        selectElement.appendChild(option);
-//    }
     // get the Form
     let form = document.getElementById("submitCity");
     // handle the submit
@@ -15,17 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         // get the city/country name
         let city = form.elements.inputCity.value;
-        // get the number of days if there
-//        let numberOfDays = form.elements.numberOfDaysForescast.value
-       let data;
+        let data;
         try {
             const response = await fetch("weather/" + city);
-            console.log(response);
             if (!response.ok) {
                 data = await response.json();
                 console.log(data);
                 throw new Error(data.message);
-
             }else{
               data = await response.json(); // Parse the response body as JSON
               data = data.body;
@@ -97,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
                           div6.appendChild(h4Cond);
                         });
             }
-
         } catch (error) {
               openPopup();
               let pError = document.getElementById('errorMessage'); // In the Home.html

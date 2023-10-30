@@ -1,11 +1,8 @@
-package com.weather.weatherStatistics.bo;
+package com.weather.weatherStatistics.bo.weather;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
-import java.util.ArrayList;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,10 +11,10 @@ import java.util.ArrayList;
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Forecastday {
+public class RootResponse {
+        public LocationResponse location;
+        public CurrentResponse current;
+        public ForecastResponse forecast;
 
-    public String date;
-    public int date_epoch;
-    public Day day;
 
 }
