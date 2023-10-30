@@ -21,7 +21,10 @@
 > - go to your browser and hit [local host](http://localhost:8080/)`localhost:8080/`
 
 > OR On Terminal
+> - clone this repo
 > ```shell
+> # Clone 
+> gh repo clone AlaaYlula/weather-app
 > # Navigate to the project directory
 > cd weather-app/weatherStatistics/weatherStatistics
 > # Build the project using Gradle
