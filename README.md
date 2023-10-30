@@ -10,8 +10,28 @@
 > WeatherAPI.com  
 >> Forecast Weather API
 ### Steps to run the app  
-> - clone this repo  
+> From Windows
+> - clone this repo
+> ```shell
+> # Clone 
+> gh repo clone AlaaYlula/weather-app
+>```
 > - open it by IntelliJ  
 > - run the app  
-> - go to your browser and hit `localhost:8080/`  
+> - go to your browser and hit [local host](http://localhost:8080/)`localhost:8080/`
+
+> OR On Terminal
+> ```shell
+> # Navigate to the project directory
+> cd weather-app/weatherStatistics/weatherStatistics
+> # Build the project using Gradle
+> ./gradlew build
+> # Run the Spring Boot application
+> ./gradlew bootRun
+> ```  
+> - go to your browser and hit [local host](http://localhost:8080/)`localhost:8080/`
+
+
+
+
 
