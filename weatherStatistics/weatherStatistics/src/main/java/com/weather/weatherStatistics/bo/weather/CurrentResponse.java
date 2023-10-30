@@ -1,6 +1,5 @@
-package com.weather.weatherStatistics.bo;
+package com.weather.weatherStatistics.bo.weather;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -12,6 +11,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Condition {
-    public String text;
+
+public class CurrentResponse {
+    public String last_updated;
+    public double temp_c;
+    public double temp_f;
+    public ConditionResponse condition;
+
 }

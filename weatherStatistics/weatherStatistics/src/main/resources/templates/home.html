@@ -14,31 +14,14 @@
     <link rel="stylesheet" href="./style/style.css">
 
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<!--<header>-->
-<!--    <nav class="navbar navbar-default navbar-fixed-top">-->
-<!--        <div class="container">-->
-<!--            <div class="collapse navbar-collapse" id="myNavbar">-->
-<!--                <ul class="nav navbar-nav navbar-right">-->
-<!--                    <li><a href="#myPage">Home</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
-<!--</header>-->
+<body  data-spy="scroll" data-target=".navbar" data-offset="60">
+
 <div class="jumbotron text-center">
     <h1>Weather Statistics</h1>
     <form id="submitCity">
         <div class="input-group">
             <input id="inputCity" name="inputCity" type="text" class="form-control" size="50"
                    placeholder="City/Country" required>
-<!--            <div class="form-control" size="50">-->
-<!--                <label for="numberOfDaysForescast">number Of Days Forescast</label>-->
-<!--                <select name="numberOfDaysForescast" id="numberOfDaysForescast">-->
-
-<!--                </select>-->
-<!--            </div>-->
-
             <div class="input-group-btn">
                 <button type="submit" class="btn btn-danger">Search</button>
             </div>
@@ -53,7 +36,6 @@
 </div>
 
 <div id="containAllInfo">
-
     <!--  Container (Weather Info Section)  -->
     <div id="services" class="container-fluid text-center">
 
@@ -83,7 +65,6 @@
         </div>
         <br><br>
     </div>
-
     <!-- Container (ForeCast Section) -->
     <div class="container-fluid">
         <div class="text-center">
@@ -91,11 +72,9 @@
             <h4>Forecast</h4>
         </div>
         <div id="forecast" class="row slideanim">
-            <!--  will Contain the Forecasts Information          -->
+            <!--  will Contain the Forecasts Information    -->
         </div>
-
     </div>
-
 </div>
 
 <script src="/js/scriptHome.js"></script>

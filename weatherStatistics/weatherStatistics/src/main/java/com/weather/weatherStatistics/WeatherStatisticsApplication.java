@@ -1,15 +1,10 @@
 package com.weather.weatherStatistics;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.weather.weatherStatistics.bo.Root;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class WeatherStatisticsApplication {
@@ -20,5 +15,8 @@ public class WeatherStatisticsApplication {
 	}
 
 
-
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
+	}
 }
